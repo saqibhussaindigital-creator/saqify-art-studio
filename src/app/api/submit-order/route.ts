@@ -1,8 +1,5 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import fs from 'fs';
-import path from 'path';
-
 // Define Validation Schema
 const OrderSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -12,14 +9,6 @@ const OrderSchema = z.object({
   budget: z.string().optional(),
   details: z.string().min(10, "Please provide more details about your project"),
 });
-
-const DATA_DIR = path.join(process.cwd(), 'src', 'data');
-const ORDER_FILE = path.join(DATA_DIR, 'orders.json');
-
-// Ensure data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
 
 export async function POST(request: Request) {
   try {
@@ -44,25 +33,15 @@ export async function POST(request: Request) {
       status: 'pending' // pending, completed, cancelled
     };
 
-    // Read existing orders
-    let orders: any[] = [];
-    if (fs.existsSync(ORDER_FILE)) {
-      const fileContent = fs.readFileSync(ORDER_FILE, 'utf-8');
-      try {
-        orders = JSON.parse(fileContent);
-        if (!Array.isArray(orders)) orders = [];
-      } catch (e) {
-        console.error("Error parsing existing orders file, starting fresh.");
-      }
-    }
+    // TODO: INTEGRATION REQUIRED
+    // On Vercel, you cannot save to the local file system (fs).
+    // You must use an external service to store this data or send an email.
 
-    // Add new order
-    orders.push(newOrder);
-
-    // Save to file
-    fs.writeFileSync(ORDER_FILE, JSON.stringify(orders, null, 2));
-
-    console.log('Order saved:', newOrder.id);
+    // For now, we log the received order to the server console (viewable in Vercel logs)
+    console.log('--- NEW ORDER RECEIVED ---');
+    console.log('Order ID:', newOrder.id);
+    console.log('Data:', JSON.stringify(result.data, null, 2));
+    console.log('--------------------------');
 
     return NextResponse.json(
       {
