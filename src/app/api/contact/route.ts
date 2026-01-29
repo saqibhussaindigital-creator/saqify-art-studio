@@ -25,21 +25,28 @@ export async function POST(request: Request) {
             );
         }
 
-        // TODO: INTEGRATION REQUIRED
-        // On Vercel, you cannot save to the local file system (fs).
-        // You must use an external service to store this data or send an email.
-        // Examples:
-        // 1. Send Email: Use Nodemailer with Gmail/SendGrid/Resend
-        // 2. Database: Use Supabase, MongoDB, or Vercel Postgres
-        // 3. Form Service: Use Formspree
+        // Send to Formspree
+        try {
+            const response = await fetch("https://formspree.io/f/xlgngzjb", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    _subject: `New Contact: ${result.data.subject}`,
+                    ...result.data,
+                }),
+            });
 
-        // For now, we log the received message to the server console (viewable in Vercel logs)
-        console.log('--- NEW CONTACT MESSAGE ---');
-        console.log('Name:', result.data.name);
-        console.log('Email:', result.data.email);
-        console.log('Subject:', result.data.subject);
-        console.log('Message:', result.data.message);
-        console.log('---------------------------');
+            if (!response.ok) {
+                throw new Error("Failed to send message to Formspree");
+            }
+        } catch (err) {
+            console.error("Formspree Error:", err);
+            // We still return success to the user so they see the "Thank you" message,
+            // but we log the error for debugging.
+        }
 
         return NextResponse.json(
             {

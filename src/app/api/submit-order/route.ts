@@ -33,15 +33,27 @@ export async function POST(request: Request) {
       status: 'pending' // pending, completed, cancelled
     };
 
-    // TODO: INTEGRATION REQUIRED
-    // On Vercel, you cannot save to the local file system (fs).
-    // You must use an external service to store this data or send an email.
+    // Send to Formspree
+    try {
+      const response = await fetch("https://formspree.io/f/xlgngzjb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          _subject: `New Order: ${result.data.service} (${newOrder.id})`,
+          ...result.data,
+          orderId: newOrder.id
+        }),
+      });
 
-    // For now, we log the received order to the server console (viewable in Vercel logs)
-    console.log('--- NEW ORDER RECEIVED ---');
-    console.log('Order ID:', newOrder.id);
-    console.log('Data:', JSON.stringify(result.data, null, 2));
-    console.log('--------------------------');
+      if (!response.ok) {
+        throw new Error("Failed to send order to Formspree");
+      }
+    } catch (err) {
+      console.error("Formspree Error:", err);
+    }
 
     return NextResponse.json(
       {
