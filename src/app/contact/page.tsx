@@ -106,7 +106,7 @@ export default function Contact() {
                 <a href="https://www.instagram.com/curioussaqibartist/" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-400 text-3xl transition-transform hover:scale-110">
                   <FaInstagram />
                 </a>
-                <a href="https://www.facebook.com/curioussaqibartist/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-500 text-3xl transition-transform hover:scale-110">
+                <a href="https://www.facebook.com/share/16sDXWzW9J/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-500 text-3xl transition-transform hover:scale-110">
                   <FaFacebook />
                 </a>
                 <a href="https://www.youtube.com/@curioussaqibartist" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-500 text-3xl transition-transform hover:scale-110">

@@ -17,7 +17,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: <FaInstagram />, label: 'Instagram', href: 'https://www.instagram.com/curioussaqibartist/' },
-    { icon: <FaFacebook />, label: 'Facebook', href: 'https://www.facebook.com/curioussaqibartist/' },
+    { icon: <FaFacebook />, label: 'Facebook', href: 'https://www.facebook.com/share/16sDXWzW9J/' },
     { icon: <FaTiktok />, label: 'TikTok', href: 'https://www.tiktok.com/@curioussaqibartist?_r=1&_t=ZS-925to32Ra6f&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnOAXeHbKIcN34YVu5MuKUGBgB4X_2MHMrUutofw4oUlG2CeJRdSBBNIp7PTw_aem_Ex1xvNYjZapNwe-007Bm-g' },
     { icon: <FaYoutube />, label: 'Youtube', href: 'https://www.youtube.com/@curioussaqibartist' },
     { icon: <FaLinkedin />, label: 'Linkedin', href: 'https://www.linkedin.com/in/curious-saqib-social-media-manger/' },
