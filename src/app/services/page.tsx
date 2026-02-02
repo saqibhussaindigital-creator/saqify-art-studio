@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { FaPaintBrush, FaPencilAlt, FaQuran, FaGift, FaBuilding, FaPalette, FaLaptop, FaStore } from 'react-icons/fa';
 
 const services = [
   {
@@ -9,48 +10,42 @@ const services = [
     description: 'Personalized artwork tailored to your vision. Whether it\'s a portrait, landscape, or abstract piece, we bring your ideas to life.',
     subcategories: ['Portraits', 'Landscapes', 'Abstract Art'],
     price: 'From $150',
-    gradient: 'from-purple-400 to-pink-600',
-    bgGradient: 'from-purple-900 to-purple-800',
+    icon: <FaPencilAlt />,
   },
   {
     name: 'Islamic Art and Calligraphy',
     description: 'Stunning Islamic art pieces including Quranic verses and beautiful calligraphy. Perfect for home or office.',
     subcategories: ['Quranic Verses', 'Names of Allah', 'Modern Calligraphy'],
     price: 'From $200',
-    gradient: 'from-blue-400 to-green-500',
-    bgGradient: 'from-blue-900 to-blue-800',
+    icon: <FaQuran />,
   },
   {
     name: 'Gifts And Bouquets',
     description: 'Thoughtful gift options including handmade cards, custom mugs, and beautiful flower arrangements.',
     subcategories: ['Handmade Cards', 'Custom Mugs', 'Flower Arrangements'],
     price: 'From $50',
-    gradient: 'from-pink-400 to-red-500',
-    bgGradient: 'from-pink-900 to-pink-800',
+    icon: <FaGift />,
   },
   {
     name: 'Event & Corporate Services',
     description: 'Live painting, caricatures, and custom murals for events, weddings, and corporate offices.',
     subcategories: ['Live Painting', 'Caricatures', 'Office Murals'],
     price: 'From $300',
-    gradient: 'from-yellow-400 to-orange-500',
-    bgGradient: 'from-yellow-900 to-yellow-800',
+    icon: <FaBuilding />,
   },
   {
     name: 'Digital Art Services',
     description: 'Professional digital illustrations, logos, and NFT designs for your brand or collection.',
     subcategories: ['Illustrations', 'Logos', 'NFTs'],
     price: 'From $100',
-    gradient: 'from-indigo-400 to-purple-500',
-    bgGradient: 'from-indigo-900 to-indigo-800',
+    icon: <FaLaptop />,
   },
   {
     name: 'Art Materials And Supplies',
     description: 'High-quality art supplies including premium canvases, paints, and professional brushes.',
     subcategories: ['Canvases', 'Paints', 'Brushes'],
     price: 'Varies',
-    gradient: 'from-green-400 to-teal-500',
-    bgGradient: 'from-green-900 to-green-800',
+    icon: <FaStore />,
   },
 ];
 
@@ -70,19 +65,19 @@ const cardVariants = {
 
 export default function Services() {
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900">
+    <div className="bg-primary-charcoal min-h-screen text-accent-ivory">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center py-16 px-4 relative"
+        className="text-center py-16 px-4 relative overflow-hidden"
       >
         <motion.div
-          className="absolute top-10 left-1/2 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 -translate-x-1/2"
+          className="absolute top-10 left-1/2 w-96 h-96 bg-secondary-gold/10 rounded-full mix-blend-screen filter blur-3xl opacity-20 -translate-x-1/2"
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 relative z-10">
+        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm relative z-10">
           Our Services
         </h1>
         <motion.p
@@ -95,7 +90,7 @@ export default function Services() {
         </motion.p>
       </motion.div>
 
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-12 pb-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -107,27 +102,35 @@ export default function Services() {
               key={service.name}
               custom={i}
               variants={cardVariants}
-              whileHover={{ y: -15, boxShadow: '0 30px 60px rgba(147, 51, 234, 0.4)' }}
-              className={`bg-gradient-to-br ${service.bgGradient} rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-purple-500 group`}
+              whileHover={{ y: -10, boxShadow: '0 25px 50px rgba(201, 162, 77, 0.1)' }}
+              className="bg-primary-deep rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-secondary-gold/20 hover:border-secondary-gold group flex flex-col"
             >
               {/* Top gradient bar */}
-              <div className={`h-3 bg-gradient-to-r ${service.gradient}`}></div>
+              <div className="h-2 bg-gradient-to-r from-secondary-gold to-secondary-warm"></div>
 
-              <div className="p-8">
+              <div className="p-8 flex-grow flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <motion.div
+                    className="text-3xl text-secondary-gold"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                  >
+                    {service.icon}
+                  </motion.div>
+                  <p className="text-xl font-bold font-serif text-secondary-warm">
+                    {service.price}
+                  </p>
+                </div>
+
                 <motion.h2
-                  className="text-2xl font-bold mb-3 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-pink-300 transition-all"
+                  className="text-2xl font-serif font-bold mb-3 text-accent-ivory group-hover:text-secondary-gold transition-colors"
                 >
                   {service.name}
                 </motion.h2>
 
-                <p className={`text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${service.gradient}`}>
-                  {service.price}
-                </p>
-
-                <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                <p className="text-gray-400 mb-6 leading-relaxed flex-grow">{service.description}</p>
 
                 <div className="mb-6">
-                  <h3 className="text-sm font-bold text-gray-400 mb-3">INCLUDES:</h3>
+                  <h3 className="text-xs font-bold text-secondary-gold mb-3 uppercase tracking-wider">Includes:</h3>
                   <ul className="space-y-2">
                     {service.subcategories.map((sub) => (
                       <motion.li
@@ -136,17 +139,17 @@ export default function Services() {
                         whileInView={{ opacity: 1, x: 0 }}
                         className="flex items-center text-gray-300 text-sm"
                       >
-                        <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient} mr-3`}></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-secondary-gold mr-3"></span>
                         {sub}
                       </motion.li>
                     ))}
                   </ul>
                 </div>
 
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-auto">
                   <Link
                     href="/order"
-                    className={`block text-center bg-gradient-to-r ${service.gradient} hover:shadow-lg text-white font-bold py-3 px-4 rounded-lg transition-all duration-300`}
+                    className="block text-center bg-secondary-gold text-primary-deep hover:bg-white font-bold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     Book Now
                   </Link>
@@ -162,14 +165,14 @@ export default function Services() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-20 px-4 bg-gradient-to-r from-purple-900 via-pink-900 to-purple-900 mt-16"
+        className="py-20 px-4 bg-primary-deep border-t border-secondary-gold/20"
       >
         <div className="container mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-6"
+            className="text-3xl md:text-4xl font-serif font-bold mb-6 text-secondary-gold"
           >
             Don&apos;t see what you&apos;re looking for?
           </motion.h2>
@@ -177,14 +180,14 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-200 mb-8 text-lg max-w-2xl mx-auto"
+            className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto"
           >
             Contact us for custom packages and special requests
           </motion.p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/contact"
-              className="inline-block bg-white text-purple-900 font-bold py-3 px-10 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-2xl"
+              className="inline-block bg-transparent border-2 border-secondary-gold text-secondary-gold font-bold py-3 px-10 rounded-full hover:bg-secondary-gold hover:text-primary-deep transition duration-300 shadow-lg hover:shadow-2xl"
             >
               Get in Touch
             </Link>
