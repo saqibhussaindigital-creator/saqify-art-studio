@@ -34,7 +34,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
-      className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white p-4 sticky top-0 z-50 shadow-2xl border-b border-purple-700 border-opacity-30"
+      className="bg-primary-deep/95 text-accent-ivory p-4 sticky top-0 z-50 shadow-2xl border-b border-secondary-gold/20 backdrop-blur-md"
     >
       <div className="container mx-auto flex justify-between items-center">
         <motion.div
@@ -43,7 +43,7 @@ export default function Header() {
         >
           <Link href="/" className="hover:opacity-80 transition-opacity flex items-center gap-3">
             <img src="/logo.png" alt="Saqify Art Studio" className="h-12 w-auto object-contain" />
-            <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+            <span className="text-2xl font-serif font-bold text-secondary-gold">
               Saqify Art Studio
             </span>
           </Link>
@@ -61,7 +61,7 @@ export default function Header() {
               <motion.li key={item.href} variants={itemVariants}>
                 <Link
                   href={item.href}
-                  className="px-4 py-2 rounded-lg text-gray-200 hover:text-white hover:bg-purple-600 transition-all duration-300 font-medium"
+                  className="px-4 py-2 rounded-lg text-accent-ivory hover:text-secondary-gold hover:bg-white/5 transition-all duration-300 font-medium font-sans"
                 >
                   {item.label}
                 </Link>
@@ -88,7 +88,7 @@ export default function Header() {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden mt-4 bg-gradient-to-b from-purple-900 to-slate-900 rounded-xl p-4 border border-purple-700"
+          className="md:hidden mt-4 bg-primary-charcoal rounded-xl p-4 border border-secondary-gold/20 shadow-xl"
         >
           <ul className="space-y-3">
             {navItems.map((item, i) => (
@@ -100,7 +100,7 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className="block px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors font-medium text-gray-200 hover:text-white"
+                  className="block px-4 py-2 rounded-lg hover:bg-white/5 transition-colors font-medium text-accent-ivory hover:text-secondary-gold"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}

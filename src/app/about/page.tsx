@@ -29,25 +29,25 @@ export default function About() {
       title: 'Quality',
       description: 'We deliver high-quality art that exceeds expectations',
       icon: '⭐',
-      color: 'from-yellow-600 to-yellow-400',
+      color: 'from-secondary-gold to-secondary-warm',
     },
     {
       title: 'Creativity',
       description: 'Innovation and unique designs in every project',
       icon: '🎨',
-      color: 'from-purple-600 to-purple-400',
+      color: 'from-secondary-gold to-secondary-warm',
     },
     {
       title: 'Dedication',
       description: 'Committed to bringing your vision to life',
       icon: '❤️',
-      color: 'from-red-600 to-red-400',
+      color: 'from-secondary-gold to-secondary-warm',
     },
     {
       title: 'Professionalism',
       description: 'Timely delivery and excellent customer service',
       icon: '✓',
-      color: 'from-green-600 to-green-400',
+      color: 'from-secondary-gold to-secondary-warm',
     },
   ];
 
@@ -69,7 +69,7 @@ export default function About() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 min-h-screen">
+    <div className="bg-primary-charcoal min-h-screen text-accent-ivory">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
@@ -77,7 +77,7 @@ export default function About() {
         transition={{ duration: 0.8 }}
         className="text-center py-16 px-4"
       >
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+        <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm">
           About Saqify Art Studio
         </h1>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -92,10 +92,10 @@ export default function About() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            whileHover={{ boxShadow: '0 25px 50px rgba(34, 197, 94, 0.2)' }}
-            className="bg-gradient-to-br from-slate-800 to-slate-900 p-10 rounded-2xl shadow-xl border border-green-700 border-opacity-30"
+            whileHover={{ boxShadow: '0 25px 50px rgba(201, 162, 77, 0.1)' }}
+            className="bg-primary-deep p-10 rounded-2xl shadow-xl border border-secondary-gold/20"
           >
-            <h2 className="text-3xl font-bold mb-6 text-green-400">🎯 Our Mission</h2>
+            <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-gold">🎯 Our Mission</h2>
             <p className="text-gray-300 leading-relaxed text-lg">
               To create exceptional, personalized art that brings joy, beauty, and cultural richness to every client.
               We believe in the transformative power of art and strive to deliver pieces that resonate with the soul.
@@ -106,10 +106,10 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            whileHover={{ boxShadow: '0 25px 50px rgba(168, 85, 247, 0.2)' }}
-            className="bg-gradient-to-br from-slate-800 to-slate-900 p-10 rounded-2xl shadow-xl border border-purple-700 border-opacity-30"
+            whileHover={{ boxShadow: '0 25px 50px rgba(201, 162, 77, 0.1)' }}
+            className="bg-primary-deep p-10 rounded-2xl shadow-xl border border-secondary-gold/20"
           >
-            <h2 className="text-3xl font-bold mb-6 text-purple-400">🚀 Our Vision</h2>
+            <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-warm">🚀 Our Vision</h2>
             <p className="text-gray-300 leading-relaxed text-lg">
               To be recognized as a leading art studio that celebrates creativity, cultural heritage, and innovation.
               We aim to make art accessible to everyone and inspire a community of art lovers worldwide.
@@ -122,7 +122,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-red-500"
+          className="text-3xl md:text-4xl font-serif font-bold text-center mb-16 text-secondary-gold"
         >
           Our Core Values
         </motion.h2>
@@ -139,11 +139,11 @@ export default function About() {
               key={value.title}
               variants={itemVariants}
               whileHover={{ y: -10, boxShadow: `0 25px 50px rgba(0, 0, 0, 0.3)` }}
-              className={`bg-gradient-to-br ${value.color} bg-opacity-10 p-8 rounded-2xl text-center hover:shadow-2xl transition-all border border-gray-700 hover:border-opacity-50`}
+              className={`bg-primary-deep p-8 rounded-2xl text-center hover:shadow-2xl transition-all border border-gray-800 hover:border-secondary-gold`}
             >
-              <div className="text-5xl mb-4 inline-block">{value.icon}</div>
-              <h3 className="text-xl font-bold mb-3 text-white">{value.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">{value.description}</p>
+              <div className="text-5xl mb-4 inline-block text-secondary-gold">{value.icon}</div>
+              <h3 className="text-xl font-bold mb-3 text-accent-ivory">{value.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -153,7 +153,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500"
+          className="text-3xl md:text-4xl font-serif font-bold text-center mb-16 text-secondary-warm"
         >
           Meet Our Team
         </motion.h2>
@@ -169,11 +169,11 @@ export default function About() {
             <motion.div
               key={member.name}
               variants={itemVariants}
-              whileHover={{ y: -15, boxShadow: '0 30px 60px rgba(147, 51, 234, 0.3)' }}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all border border-gray-700 hover:border-purple-500"
+              whileHover={{ y: -15, boxShadow: '0 30px 60px rgba(201, 162, 77, 0.1)' }}
+              className="bg-primary-deep p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all border border-gray-800 hover:border-secondary-gold"
             >
               <motion.div
-                className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg"
+                className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-secondary-gold/50 shadow-lg"
                 whileHover={{ scale: 1.1 }}
               >
                 <img
@@ -182,8 +182,8 @@ export default function About() {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-              <h3 className="text-2xl font-bold mb-2 text-white">{member.name}</h3>
-              <p className="text-purple-400 font-semibold mb-3">{member.role}</p>
+              <h3 className="text-2xl font-bold mb-2 text-accent-ivory">{member.name}</h3>
+              <p className="text-secondary-gold font-semibold mb-3">{member.role}</p>
               <p className="text-gray-400">{member.description}</p>
             </motion.div>
           ))}
@@ -194,10 +194,10 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          whileHover={{ boxShadow: '0 30px 60px rgba(59, 130, 246, 0.2)' }}
-          className="bg-gradient-to-br from-slate-800 to-slate-900 p-12 rounded-2xl shadow-xl max-w-4xl mx-auto border border-cyan-700 border-opacity-30"
+          whileHover={{ boxShadow: '0 30px 60px rgba(201, 162, 77, 0.1)' }}
+          className="bg-primary-deep p-12 rounded-2xl shadow-xl max-w-4xl mx-auto border border-secondary-gold/20"
         >
-          <h2 className="text-3xl font-bold mb-6 text-cyan-400">📖 Our Story</h2>
+          <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-gold">📖 Our Story</h2>
           <p className="text-gray-300 leading-relaxed mb-4 text-lg">
             Saqify Art Studio was founded with a simple vision: to make exceptional art accessible to everyone.
             Starting as a small creative space, we have grown into a full-service art studio offering a diverse range of services.
@@ -211,3 +211,4 @@ export default function About() {
     </div >
   );
 }
+

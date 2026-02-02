@@ -2,8 +2,52 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { FaPaintBrush, FaPencilAlt, FaQuran, FaGift, FaBuilding, FaPalette, FaLaptop, FaStore } from 'react-icons/fa';
 
 export default function Home() {
+  const services = [
+    {
+      title: "Sketching & Portraits",
+      description: "Hand-drawn pencil and charcoal sketches crafted from your photos, perfect for gifts and memories.",
+      icon: <FaPencilAlt />,
+    },
+    {
+      title: "Paintings",
+      description: "Acrylic, oil, and mixed media paintings on canvas with premium finishing.",
+      icon: <FaPaintBrush />,
+    },
+    {
+      title: "Islamic Calligraphy",
+      description: "Traditional and modern Islamic calligraphy designed with spiritual elegance.",
+      icon: <FaQuran />,
+    },
+    {
+      title: "Personalized Gifts",
+      description: "Emotion-driven custom gifts for birthdays, anniversaries, and special occasions.",
+      icon: <FaGift />,
+    },
+    {
+      title: "Wall Art & Murals",
+      description: "Indoor and outdoor wall painting, chalk art, and murals for homes and businesses.",
+      icon: <FaBuilding />,
+    },
+    {
+      title: "Commercial Art",
+      description: "Creative artwork and branding visuals for businesses, cafes, and offices.",
+      icon: <FaPalette />,
+    },
+    {
+      title: "Digital Art & Design",
+      description: "High-quality digital portraits, posters, and social media designs.",
+      icon: <FaLaptop />,
+    },
+    {
+      title: "Art Supplies",
+      description: "Curated art materials for students and professionals.",
+      icon: <FaStore />,
+    }
+  ];
+
   const testimonials = [
     {
       name: 'Maria Johnson',
@@ -25,19 +69,12 @@ export default function Home() {
     },
   ];
 
-  const features = [
-    { icon: '🎨', title: 'Custom Designs', description: 'Personalized artwork tailored to your vision' },
-    { icon: '⚡', title: 'Fast Delivery', description: 'Quick turnaround without compromising quality' },
-    { icon: '🌟', title: 'Premium Quality', description: 'High-quality materials and expert craftsmanship' },
-    { icon: '🤝', title: 'Great Support', description: 'Dedicated team to help throughout your project' },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.2,
       },
     },
@@ -48,245 +85,189 @@ export default function Home() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, type: 'spring', stiffness: 100 },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      },
+      transition: { duration: 0.6, type: 'spring', stiffness: 50 },
     },
   };
 
   return (
-    <div>
-      {/* Hero Section with Enhanced Background */}
-      <section className="min-h-screen flex flex-col items-center justify-center text-center p-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden relative">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/hero-collage.png')" }}></div>
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900/90 via-purple-900/80 to-slate-900/90"></div>
+    <div className="bg-primary-charcoal font-sans text-accent-ivory">
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('/hero-collage.png')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-deep/90 via-primary-charcoal/80 to-primary-charcoal"></div>
+        </div>
 
+        {/* Floating Glows */}
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary-gold/20 rounded-full blur-[100px]"
+          animate={{ x: [0, 30, 0], y: [0, -30, 0] }}
+          transition={{ duration: 10, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[100px]"
+          animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
         />
 
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: 'spring', stiffness: 80 }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 relative z-10"
-        >
-          Welcome to Saqify Art Studio
-        </motion.h1>
-
-        <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          className="mb-6"
-        >
-          <img src="/logo.png" alt="Saqify Art Studio Logo" className="h-32 w-auto drop-shadow-2xl" />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl mb-8 max-w-2xl text-gray-200 relative z-10 leading-relaxed"
-        >
-          Where creativity comes to life. We offer a wide range of art services to bring your vision into reality.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.4, type: 'spring' }}
-          className="flex gap-4 flex-wrap justify-center relative z-10"
-        >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/services"
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-10 rounded-full transition duration-300 shadow-lg hover:shadow-2xl inline-block"
-            >
-              Explore Our Services
-            </Link>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6"
+          >
+            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm tracking-tight">
+              Saqify Art Studio
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-light text-accent-beige/90 tracking-wide mt-4 italic">
+              Where Art Meets Emotion
+            </h2>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+          >
+            Custom sketches, paintings, calligraphy, gifts, and complete creative services for local and global clients.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="flex flex-col md:flex-row gap-4 justify-center items-center"
+          >
+            <Link
+              href="/order"
+              className="px-8 py-4 bg-secondary-gold text-primary-deep font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(201,162,77,0.5)] transition-all duration-300 text-lg w-full md:w-auto"
+            >
+              Place Your Order
+            </Link>
             <Link
               href="/gallery"
-              className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold py-4 px-10 rounded-full transition duration-300 shadow-lg hover:shadow-2xl inline-block"
+              className="px-8 py-4 bg-transparent border-2 border-secondary-gold text-secondary-gold font-bold rounded-full hover:bg-secondary-gold/10 transition-all duration-300 text-lg w-full md:w-auto"
             >
-              View Portfolio
+              View Gallery
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-slate-900 to-slate-950">
+      {/* Services Section */}
+      <section className="py-24 px-4 bg-primary-deep relative">
         <div className="container mx-auto">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-3xl md:text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500"
+            viewport={{ once: true }}
+            className="text-center mb-16"
           >
-            Why Choose Saqify?
-          </motion.h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-secondary-gold mb-4">Our Services</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">Discover the wide range of artistic services we offer.</p>
+          </motion.div>
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {features.map((feature, i) => (
+            {services.map((service, i) => (
               <motion.div
-                key={feature.title}
+                key={i}
                 variants={itemVariants}
-                whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(147, 51, 234, 0.3)' }}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-xl text-center hover:shadow-2xl transition-all duration-300 border border-purple-500 border-opacity-20"
+                className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-secondary-gold/50 hover:bg-white/10 transition-all duration-300 text-center"
               >
-                <motion.div
-                  className="text-6xl mb-4 inline-block"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  {feature.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                <div className="text-4xl text-secondary-gold mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-accent-ivory">{service.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">{service.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-slate-950 via-purple-900 to-slate-950">
+      {/* Testimonials */}
+      <section className="py-24 px-4 bg-gradient-to-b from-primary-deep to-primary-charcoal">
         <div className="container mx-auto">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-3xl md:text-4xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500"
-          >
-            What Our Clients Say
-          </motion.h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="text-center mb-16"
           >
-            {testimonials.map((testimonial, i) => (
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm mb-4">Client Love</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
               <motion.div
-                key={`${testimonial.name}-${i}`}
-                variants={itemVariants}
-                whileHover={{ y: -8, boxShadow: '0 25px 50px rgba(59, 130, 246, 0.3)' }}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-500 border-opacity-20"
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="p-8 rounded-2xl bg-primary-charcoal border border-secondary-gold/20 shadow-xl relative"
               >
-                <motion.div
-                  className="text-yellow-400 mb-4 text-2xl"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: i * 0.2 }}
-                >
-                  {testimonial.rating}
-                </motion.div>
-                <p className="text-gray-300 mb-6 italic leading-relaxed">"{testimonial.text}"</p>
-                <div className="border-t border-gray-700 pt-4">
-                  <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{testimonial.name}</p>
-                  <p className="text-cyan-400 text-sm">{testimonial.role}</p>
+                <div className="absolute top-6 right-8 text-4xl text-secondary-gold/20 font-serif">"</div>
+                <div className="text-secondary-gold mb-4 text-sm tracking-widest">{t.rating}</div>
+                <p className="text-gray-300 italic mb-6 leading-relaxed relative z-10">{t.text}</p>
+                <div>
+                  <h4 className="font-bold text-accent-ivory">{t.name}</h4>
+                  <p className="text-secondary-gold text-sm">{t.role}</p>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="container mx-auto">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
-          >
-            {[
-              { number: '500+', label: 'Happy Clients' },
-              { number: '1000+', label: 'Projects Completed' },
-              { number: '10+', label: 'Years Experience' },
-              { number: '24/7', label: 'Support' },
-            ].map((stat, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <motion.div
-                  className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500"
-                  whileInView={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  {stat.number}
-                </motion.div>
-                <p className="text-gray-400 mt-2 text-lg">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-purple-900 via-pink-900 to-purple-900 relative overflow-hidden">
-        <motion.div
-          className="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 8, repeat: Infinity, delay: 2 }}
-        />
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary-gold/10"></div>
+        <div className="absolute inset-0 bg-[url('/hero-pattern.png')] opacity-5"></div>
 
-        <div className="container mx-auto text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 max-w-3xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-3xl md:text-4xl font-extrabold mb-6"
+            className="text-4xl md:text-6xl font-serif font-bold text-white mb-6"
           >
-            Ready to Create Something Amazing?
+            Let’s Create Your Next Masterpiece
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed"
+            transition={{ delay: 0.2 }}
+            className="text-xl text-gray-300 mb-10"
           >
-            Let&apos;s bring your creative vision to life. Get started with Saqify Art Studio today!
+            Whether it's a portrait, a mural, or a digital design, we bring your vision to life.
           </motion.p>
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center"
           >
             <Link
-              href="/order"
-              className="inline-block bg-white text-purple-900 font-bold py-4 px-12 rounded-full hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-2xl text-lg"
+              href="https://wa.me/923478025660"
+              target="_blank"
+              className="px-10 py-4 bg-transparent border-2 border-secondary-gold text-secondary-gold font-bold rounded-full hover:bg-secondary-gold hover:text-primary-deep transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              Place Your Order Now
+              <span>WhatsApp Us</span>
+            </Link>
+            <Link
+              href="/order"
+              className="px-10 py-4 bg-secondary-gold text-primary-deep font-bold rounded-full hover:bg-white transition-all shadow-lg"
+            >
+              Start Your Order
             </Link>
           </motion.div>
         </div>
@@ -294,3 +275,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -8,6 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          charcoal: "#121212",
+          deep: "#000000",
+        },
+        secondary: {
+          gold: "#C9A24D",
+          warm: "#D4AF37",
+        },
+        accent: {
+          ivory: "#F5F3EF",
+          beige: "#E6E1D8",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        serif: ["var(--font-playfair)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
