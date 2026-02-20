@@ -93,7 +93,7 @@ export default function FAQ() {
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-accent-beige max-w-2xl mx-auto">
             Find answers to common questions about our services, pricing, and process
           </p>
         </motion.div>
@@ -136,7 +136,7 @@ export default function FAQ() {
                 className="overflow-hidden"
               >
                 <div className="px-6 py-4 bg-primary-charcoal border-t border-secondary-gold/10">
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                  <p className="text-accent-beige leading-relaxed">{faq.answer}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -151,7 +151,7 @@ export default function FAQ() {
           className="mt-16 text-center bg-primary-deep p-12 rounded-lg shadow-lg max-w-2xl mx-auto border border-secondary-gold/20"
         >
           <h2 className="text-2xl font-serif font-bold mb-4 text-secondary-gold">Didn&apos;t find your answer?</h2>
-          <p className="text-gray-300 mb-6">
+          <p className="text-accent-beige mb-6">
             Get in touch with us directly. We&apos;re always happy to help!
           </p>
           <motion.a

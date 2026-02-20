@@ -130,7 +130,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-accent-beige mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             Custom sketches, paintings, calligraphy, gifts, and complete creative services for local and global clients.
           </motion.p>
@@ -143,7 +143,7 @@ export default function Home() {
           >
             <Link
               href="/order"
-              className="px-8 py-4 bg-secondary-gold text-primary-deep font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(201,162,77,0.5)] transition-all duration-300 text-lg w-full md:w-auto"
+              className="px-8 py-4 bg-secondary-gold text-black font-bold rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(201,162,77,0.5)] transition-all duration-300 text-lg w-full md:w-auto"
             >
               Place Your Order
             </Link>
@@ -167,7 +167,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-secondary-gold mb-4">Our Services</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">Discover the wide range of artistic services we offer.</p>
+            <p className="text-accent-beige max-w-2xl mx-auto">Discover the wide range of artistic services we offer.</p>
           </motion.div>
 
           <motion.div
@@ -181,13 +181,13 @@ export default function Home() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-secondary-gold/50 hover:bg-white/10 transition-all duration-300 text-center"
+                className="group p-8 rounded-2xl bg-accent-ivory/5 border border-white/10 hover:border-secondary-gold/50 hover:bg-white/10 transition-all duration-300 text-center"
               >
                 <div className="text-4xl text-secondary-gold mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-accent-ivory">{service.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{service.description}</p>
+                <p className="text-accent-beige text-sm leading-relaxed mb-4">{service.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -218,7 +218,7 @@ export default function Home() {
               >
                 <div className="absolute top-6 right-8 text-4xl text-secondary-gold/20 font-serif">"</div>
                 <div className="text-secondary-gold mb-4 text-sm tracking-widest">{t.rating}</div>
-                <p className="text-gray-300 italic mb-6 leading-relaxed relative z-10">{t.text}</p>
+                <p className="text-accent-beige italic mb-6 leading-relaxed relative z-10">{t.text}</p>
                 <div>
                   <h4 className="font-bold text-accent-ivory">{t.name}</h4>
                   <p className="text-secondary-gold text-sm">{t.role}</p>
@@ -238,7 +238,7 @@ export default function Home() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-serif font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-serif font-bold text-accent-ivory mb-6"
           >
             Let’s Create Your Next Masterpiece
           </motion.h2>
@@ -246,7 +246,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300 mb-10"
+            className="text-xl text-accent-beige mb-10"
           >
             Whether it's a portrait, a mural, or a digital design, we bring your vision to life.
           </motion.p>
@@ -265,7 +265,7 @@ export default function Home() {
             </Link>
             <Link
               href="/order"
-              className="px-10 py-4 bg-secondary-gold text-primary-deep font-bold rounded-full hover:bg-white transition-all shadow-lg"
+              className="px-10 py-4 bg-secondary-gold text-black font-bold rounded-full hover:bg-white transition-all shadow-lg"
             >
               Start Your Order
             </Link>

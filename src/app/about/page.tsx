@@ -8,7 +8,7 @@ export default function About() {
       name: 'Saqib Hussain',
       role: 'Founder, CEO & Artist',
       description: 'Visionary leader and master artist dedicated to bringing creative dreams to reality.',
-      image: '/team/saqib.jpg',
+      image: '/team/saqib.jpeg',
     },
     {
       name: 'Ismail Katlang',
@@ -80,7 +80,7 @@ export default function About() {
         <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-secondary-gold to-secondary-warm">
           About Saqify Art Studio
         </h1>
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-accent-beige max-w-2xl mx-auto leading-relaxed">
           We are a passionate team of artists dedicated to creating exceptional art that inspires and transforms spaces.
         </p>
       </motion.div>
@@ -96,7 +96,7 @@ export default function About() {
             className="bg-primary-deep p-10 rounded-2xl shadow-xl border border-secondary-gold/20"
           >
             <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-gold">🎯 Our Mission</h2>
-            <p className="text-gray-300 leading-relaxed text-lg">
+            <p className="text-accent-beige leading-relaxed text-lg">
               To create exceptional, personalized art that brings joy, beauty, and cultural richness to every client.
               We believe in the transformative power of art and strive to deliver pieces that resonate with the soul.
             </p>
@@ -110,7 +110,7 @@ export default function About() {
             className="bg-primary-deep p-10 rounded-2xl shadow-xl border border-secondary-gold/20"
           >
             <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-warm">🚀 Our Vision</h2>
-            <p className="text-gray-300 leading-relaxed text-lg">
+            <p className="text-accent-beige leading-relaxed text-lg">
               To be recognized as a leading art studio that celebrates creativity, cultural heritage, and innovation.
               We aim to make art accessible to everyone and inspire a community of art lovers worldwide.
             </p>
@@ -139,11 +139,11 @@ export default function About() {
               key={value.title}
               variants={itemVariants}
               whileHover={{ y: -10, boxShadow: `0 25px 50px rgba(0, 0, 0, 0.3)` }}
-              className={`bg-primary-deep p-8 rounded-2xl text-center hover:shadow-2xl transition-all border border-gray-800 hover:border-secondary-gold`}
+              className={`bg-primary-deep p-8 rounded-2xl text-center hover:shadow-2xl transition-all border border-secondary-gold/10 hover:border-secondary-gold`}
             >
               <div className="text-5xl mb-4 inline-block text-secondary-gold">{value.icon}</div>
               <h3 className="text-xl font-bold mb-3 text-accent-ivory">{value.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
+              <p className="text-accent-beige text-sm leading-relaxed">{value.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -170,7 +170,7 @@ export default function About() {
               key={member.name}
               variants={itemVariants}
               whileHover={{ y: -15, boxShadow: '0 30px 60px rgba(201, 162, 77, 0.1)' }}
-              className="bg-primary-deep p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all border border-gray-800 hover:border-secondary-gold"
+              className="bg-primary-deep p-8 rounded-2xl shadow-xl text-center hover:shadow-2xl transition-all border border-secondary-gold/10 hover:border-secondary-gold"
             >
               <motion.div
                 className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-secondary-gold/50 shadow-lg"
@@ -184,7 +184,7 @@ export default function About() {
               </motion.div>
               <h3 className="text-2xl font-bold mb-2 text-accent-ivory">{member.name}</h3>
               <p className="text-secondary-gold font-semibold mb-3">{member.role}</p>
-              <p className="text-gray-400">{member.description}</p>
+              <p className="text-accent-beige">{member.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -198,11 +198,11 @@ export default function About() {
           className="bg-primary-deep p-12 rounded-2xl shadow-xl max-w-4xl mx-auto border border-secondary-gold/20"
         >
           <h2 className="text-3xl font-serif font-bold mb-6 text-secondary-gold">📖 Our Story</h2>
-          <p className="text-gray-300 leading-relaxed mb-4 text-lg">
+          <p className="text-accent-beige leading-relaxed mb-4 text-lg">
             Saqify Art Studio was founded with a simple vision: to make exceptional art accessible to everyone.
             Starting as a small creative space, we have grown into a full-service art studio offering a diverse range of services.
           </p>
-          <p className="text-gray-300 leading-relaxed text-lg">
+          <p className="text-accent-beige leading-relaxed text-lg">
             Today, we serve clients from around the world, helping them bring their creative visions to life.
             Our commitment to quality, innovation, and customer satisfaction remains at the heart of everything we do.
           </p>

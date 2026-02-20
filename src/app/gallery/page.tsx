@@ -61,7 +61,7 @@ export default function Gallery() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-300 max-w-2xl mx-auto text-lg relative z-10"
+          className="text-accent-beige max-w-2xl mx-auto text-lg relative z-10"
         >
           Explore our latest creations and see the amazing work we&apos;ve done for our clients
         </motion.p>
@@ -82,7 +82,7 @@ export default function Gallery() {
             onClick={() => setSelectedCategory(category)}
             className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 border ${selectedCategory === category
               ? 'bg-secondary-gold text-primary-deep border-secondary-gold shadow-lg'
-              : 'bg-primary-deep text-gray-400 border-gray-700 hover:border-secondary-gold hover:text-secondary-gold'
+              : 'bg-primary-deep text-accent-beige border-secondary-gold/20 hover:border-secondary-gold hover:text-secondary-gold'
               }`}
           >
             {category}
@@ -103,7 +103,7 @@ export default function Gallery() {
               key={`${item.title}-${i}`}
               variants={itemVariants}
               whileHover={{ y: -15 }}
-              className="bg-primary-deep rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-800 hover:border-secondary-gold cursor-pointer group"
+              className="bg-primary-deep rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-secondary-gold/20 hover:border-secondary-gold cursor-pointer group"
             >
               {/* Image/Icon Area */}
               <div className="relative h-56 bg-primary-charcoal flex items-center justify-center overflow-hidden">
@@ -131,7 +131,7 @@ export default function Gallery() {
                 >
                   {item.title}
                 </motion.h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-accent-beige text-sm leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
@@ -143,7 +143,7 @@ export default function Gallery() {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <p className="text-gray-400 text-lg">No items found in this category</p>
+            <p className="text-accent-beige text-lg">No items found in this category</p>
           </motion.div>
         )}
       </div>
@@ -158,7 +158,7 @@ export default function Gallery() {
         <div className="absolute inset-0 bg-secondary-gold/5"></div>
         <div className="relative z-10">
           <h2 className="text-3xl font-serif font-bold mb-4 text-accent-ivory">Inspired by Our Work?</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-accent-beige mb-8 max-w-2xl mx-auto leading-relaxed">
             Let&apos;s collaborate and create something amazing together. Get in touch with us to discuss your next project.
           </p>
           <motion.div

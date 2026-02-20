@@ -84,7 +84,7 @@ export default function Services() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-300 mb-0 max-w-2xl mx-auto text-lg relative z-10"
+          className="text-accent-beige mb-0 max-w-2xl mx-auto text-lg relative z-10"
         >
           Discover our wide range of art services designed to meet all your creative needs
         </motion.p>
@@ -127,7 +127,7 @@ export default function Services() {
                   {service.name}
                 </motion.h2>
 
-                <p className="text-gray-400 mb-6 leading-relaxed flex-grow">{service.description}</p>
+                <p className="text-accent-beige mb-6 leading-relaxed flex-grow">{service.description}</p>
 
                 <div className="mb-6">
                   <h3 className="text-xs font-bold text-secondary-gold mb-3 uppercase tracking-wider">Includes:</h3>
@@ -137,7 +137,7 @@ export default function Services() {
                         key={sub}
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        className="flex items-center text-gray-300 text-sm"
+                        className="flex items-center text-accent-beige text-sm"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-secondary-gold mr-3"></span>
                         {sub}
@@ -149,7 +149,7 @@ export default function Services() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="mt-auto">
                   <Link
                     href="/order"
-                    className="block text-center bg-secondary-gold text-primary-deep hover:bg-white font-bold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="block text-center bg-secondary-gold text-black hover:bg-white font-bold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     Book Now
                   </Link>
@@ -180,7 +180,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto"
+            className="text-accent-beige mb-8 text-lg max-w-2xl mx-auto"
           >
             Contact us for custom packages and special requests
           </motion.p>

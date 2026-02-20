@@ -77,7 +77,7 @@ export default function Order() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center text-gray-300 max-w-2xl mx-auto mb-12 text-lg"
+          className="text-center text-accent-beige max-w-2xl mx-auto mb-12 text-lg"
         >
           Tell us about your project and let&apos;s create something amazing together.
         </motion.p>
@@ -97,7 +97,7 @@ export default function Order() {
               ✓
             </motion.div>
             <h2 className="text-3xl font-bold mb-4 text-accent-ivory">Thank you for your order!</h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-accent-beige text-lg leading-relaxed">
               We have received your request and will get back to you shortly with payment and delivery details.
               Check your email for confirmation.
             </p>
@@ -135,7 +135,7 @@ export default function Order() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-gray-500 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-accent-beige/50 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
                 placeholder="Your full name"
                 required
               />
@@ -156,7 +156,7 @@ export default function Order() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-gray-500 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-accent-beige/50 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
                 placeholder="your@email.com"
                 required
               />
@@ -177,7 +177,7 @@ export default function Order() {
                 type="tel"
                 id="phone"
                 name="phone"
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-gray-500 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-accent-beige/50 transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
                 placeholder="+92 3XX XXXXXXX"
               />
             </motion.div>
@@ -196,7 +196,7 @@ export default function Order() {
               <select
                 id="service"
                 name="service"
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
                 required
               >
                 <option value="">Select a service</option>
@@ -225,7 +225,7 @@ export default function Order() {
               <select
                 id="budget"
                 name="budget"
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory transition-all duration-300 focus:ring-1 focus:ring-secondary-gold"
               >
                 <option value="">Select your budget</option>
                 <option value="Under 5,000 PKR ($20)">Under 5,000 PKR ($20)</option>
@@ -251,7 +251,7 @@ export default function Order() {
                 id="details"
                 name="details"
                 rows={6}
-                className="w-full p-4 rounded-lg bg-primary-charcoal border border-gray-700 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-gray-500 transition-all duration-300 resize-none focus:ring-1 focus:ring-secondary-gold"
+                className="w-full p-4 rounded-lg bg-primary-charcoal border border-secondary-gold/20 focus:border-secondary-gold focus:outline-none text-accent-ivory placeholder-accent-beige/50 transition-all duration-300 resize-none focus:ring-1 focus:ring-secondary-gold"
                 placeholder="Describe your project, vision, colors, style, deadlines, and any special requirements..."
                 required
               ></textarea>

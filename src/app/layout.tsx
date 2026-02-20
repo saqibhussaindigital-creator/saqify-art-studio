@@ -22,20 +22,24 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-primary-charcoal text-accent-ivory`}>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <WhatsAppButton />
-          <Footer />
-        </div>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-primary-charcoal text-accent-ivory transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <WhatsAppButton />
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

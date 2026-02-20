@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Light Mode Colors (Default or Light Class) */
+  --primary-charcoal: #ffffff;
+  --primary-deep: #f8f9fa;
+  --secondary-gold: #c9a24d;
+  --secondary-warm: #d4af37;
+  --accent-ivory: #121212;   /* Text becomes dark */
+  --accent-beige: #333333;   /* Secondary text becomes dark gray */
+}
+
+/* Dark Mode Colors */
+.dark {
+  --primary-charcoal: #121212;
+  --primary-deep: #000000;
+  --secondary-gold: #c9a24d;
+  --secondary-warm: #d4af37;
+  --accent-ivory: #f5f3ef;   /* Text becomes light */
+  --accent-beige: #e6e1d8;   /* Secondary text becomes light beige */
+}
+
+body {
+  background-color: var(--primary-charcoal);
+  color: var(--accent-ivory);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

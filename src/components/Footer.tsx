@@ -31,7 +31,7 @@ export default function Footer() {
       className="bg-primary-deep text-accent-ivory py-12 border-t border-secondary-gold/20 relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0 opacity-5 bg-auto opacity-10" style={{ backgroundImage: "url('/hero-collage.png')" }}></div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-t from-primary-charcoal via-transparent to-transparent"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -50,7 +50,7 @@ export default function Footer() {
             <p className="text-accent-beige text-sm leading-relaxed mb-4">
               Where Art Meets Emotion.
             </p>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-accent-beige text-sm leading-relaxed">
               Custom sketches, paintings, calligraphy, gifts, and complete creative services for local and global clients.
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-secondary-gold transition-colors text-sm"
+                    className="text-accent-beige hover:text-secondary-gold transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
             transition={{ delay: 0.3 }}
           >
             <h4 className="font-bold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <ul className="space-y-2 text-sm text-accent-beige">
               <li>
                 <a href="mailto:saqibhussaindigital@gmail.com" className="hover:text-secondary-gold transition-colors">
                   saqibhussaindigital@gmail.com
@@ -142,7 +142,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="text-center text-gray-400 text-sm"
+          className="text-center text-accent-beige text-sm"
         >
           <p>&copy; {currentYear} Saqify Art Studio. All rights reserved.</p>
           <p className="mt-2">Made with ❤️ by passionate artists</p>

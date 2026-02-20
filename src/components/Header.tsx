@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,35 +51,41 @@ export default function Header() {
         </motion.div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <motion.ul
-            className="flex space-x-1"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {navItems.map((item) => (
-              <motion.li key={item.href} variants={itemVariants}>
-                <Link
-                  href={item.href}
-                  className="px-4 py-2 rounded-lg text-accent-ivory hover:text-secondary-gold hover:bg-white/5 transition-all duration-300 font-medium font-sans"
-                >
-                  {item.label}
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </nav>
+        <div className="hidden md:flex items-center">
+          <nav>
+            <motion.ul
+              className="flex space-x-1 items-center"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {navItems.map((item) => (
+                <motion.li key={item.href} variants={itemVariants}>
+                  <Link
+                    href={item.href}
+                    className="px-4 py-2 rounded-lg text-accent-ivory hover:text-secondary-gold hover:bg-white/5 transition-all duration-300 font-medium font-sans"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </nav>
+          <ThemeToggle />
+        </div>
 
-        {/* Mobile Menu Button */}
-        <motion.button
-          className="md:hidden text-2xl"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {isMobileMenuOpen ? '✕' : '☰'}
-        </motion.button>
+        {/* Mobile Menu Button & Toggle */}
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <motion.button
+            className="text-2xl"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </motion.button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}

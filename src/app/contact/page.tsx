@@ -69,21 +69,21 @@ export default function Contact() {
 
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-2">Email</h3>
-              <a href="mailto:saqibhussaindigital@gmail.com" className="text-gray-300 hover:text-secondary-gold hover:underline text-lg transition-colors">
+              <a href="mailto:saqibhussaindigital@gmail.com" className="text-accent-beige hover:text-secondary-gold hover:underline text-lg transition-colors">
                 saqibhussaindigital@gmail.com
               </a>
             </div>
 
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-2">Phone</h3>
-              <a href="whatsapp://send?phone=+923478025660" className="text-gray-300 hover:text-secondary-gold hover:underline text-lg transition-colors">
+              <a href="whatsapp://send?phone=+923478025660" className="text-accent-beige hover:text-secondary-gold hover:underline text-lg transition-colors">
                 +92 347 8025660
               </a>
             </div>
 
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-2">Address</h3>
-              <p className="text-gray-300">
+              <p className="text-accent-beige">
                 Katlang Mardan<br />
                 Khyber Pakhtunkhwa<br />
                 Pakistan
@@ -93,7 +93,7 @@ export default function Contact() {
             <div>
               <h3 className="text-lg font-bold mb-4">Follow Us</h3>
               <div className="flex space-x-6">
-                <a href="https://www.instagram.com/curioussaqibartist/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 text-3xl transition-transform hover:scale-110">
+                <a href="https://www.instagram.com/curioussaqibartist/" target="_blank" rel="noopener noreferrer" className="text-accent-beige hover:text-pink-500 text-3xl transition-transform hover:scale-110">
                   <FaInstagram />
                 </a>
                 <a href="https://www.facebook.com/share/16sDXWzW9J/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 text-3xl transition-transform hover:scale-110">
@@ -105,7 +105,7 @@ export default function Contact() {
                 <a href="https://www.linkedin.com/in/curious-saqib-social-media-manger/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-700 text-3xl transition-transform hover:scale-110">
                   <FaLinkedin />
                 </a>
-                <a href="https://www.tiktok.com/@curioussaqibartist?_r=1&_t=ZS-925to32Ra6f&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnOAXeHbKIcN34YVu5MuKUGBgB4X_2MHMrUutofw4oUlG2CeJRdSBBNIp7PTw_aem_Ex1xvNYjZapNwe-007Bm-g" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-3xl transition-transform hover:scale-110">
+                <a href="https://www.tiktok.com/@curioussaqibartist?_r=1&_t=ZS-925to32Ra6f&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnOAXeHbKIcN34YVu5MuKUGBgB4X_2MHMrUutofw4oUlG2CeJRdSBBNIp7PTw_aem_Ex1xvNYjZapNwe-007Bm-g" target="_blank" rel="noopener noreferrer" className="text-accent-beige hover:text-accent-ivory text-3xl transition-transform hover:scale-110">
                   <FaTiktok />
                 </a>
               </div>
@@ -138,7 +138,7 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full p-3 rounded bg-primary-charcoal border border-gray-700 focus:outline-none focus:border-secondary-gold text-white"
+                  className="w-full p-3 rounded bg-primary-charcoal border border-secondary-gold/20 focus:outline-none focus:border-secondary-gold text-accent-ivory"
                   required
                 />
               </div>
@@ -151,7 +151,7 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full p-3 rounded bg-primary-charcoal border border-gray-700 focus:outline-none focus:border-secondary-gold text-white"
+                  className="w-full p-3 rounded bg-primary-charcoal border border-secondary-gold/20 focus:outline-none focus:border-secondary-gold text-accent-ivory"
                   required
                 />
               </div>
@@ -164,7 +164,7 @@ export default function Contact() {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full p-3 rounded bg-primary-charcoal border border-gray-700 focus:outline-none focus:border-secondary-gold text-white"
+                  className="w-full p-3 rounded bg-primary-charcoal border border-secondary-gold/20 focus:outline-none focus:border-secondary-gold text-accent-ivory"
                   required
                 />
               </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="w-full p-3 rounded bg-primary-charcoal border border-gray-700 focus:outline-none focus:border-secondary-gold text-white"
+                  className="w-full p-3 rounded bg-primary-charcoal border border-secondary-gold/20 focus:outline-none focus:border-secondary-gold text-accent-ivory"
                   required
                 ></textarea>
               </div>
