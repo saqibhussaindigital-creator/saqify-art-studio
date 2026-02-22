@@ -3,9 +3,15 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
+import { FaHeart } from 'react-icons/fa';
+import { useSession } from 'next-auth/react';
+import { useWishlist } from '@/hooks/useWishlist';
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const { data: session } = useSession();
+  const { isWishlisted, toggle } = useWishlist();
+  const [toast, setToast] = useState<string | null>(null);
 
   const portfolioItems = [
     { title: 'Royal Portrait', category: 'Custom Art Services', description: 'Beautiful detailed portrait of a royal family', image: '/gallery/portraite.jfif' },
@@ -20,28 +26,46 @@ export default function Gallery() {
   ];
 
   const categories = ['All', 'Custom Art Services', 'Islamic Art', 'Digital Art Services', 'Event Services', 'Gifts & Bouquets', 'Custom Sketches'];
-
   const filteredItems = selectedCategory === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === selectedCategory);
+
+  const showToast = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 2500);
+  };
+
+  const handleWishlist = (item: typeof portfolioItems[0]) => {
+    if (!session) {
+      showToast('Sign in to save to wishlist');
+      return;
+    }
+    const id = item.title.toLowerCase().replace(/\s+/g, '-');
+    const added = toggle({ id, title: item.title, category: item.category, image: item.image });
+    if (added) showToast(isWishlisted(id) ? 'Removed from wishlist' : '❤️ Added to wishlist!');
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
   };
-
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, type: 'spring', stiffness: 100 },
-    },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, type: 'spring', stiffness: 100 } },
   };
 
   return (
     <div className="bg-primary-charcoal min-h-screen text-accent-ivory">
+      {/* Toast */}
+      {toast && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-primary-deep border border-secondary-gold/30 text-accent-ivory px-6 py-3 rounded-full shadow-xl font-semibold text-sm"
+        >
+          {toast}
+        </motion.div>
+      )}
+
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
@@ -65,6 +89,16 @@ export default function Gallery() {
         >
           Explore our latest creations and see the amazing work we&apos;ve done for our clients
         </motion.p>
+        {!session && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-accent-beige/60 text-sm mt-3 relative z-10"
+          >
+            <Link href="/signin" className="text-secondary-gold hover:underline font-semibold">Sign in</Link> to save favourites to your wishlist
+          </motion.p>
+        )}
       </motion.div>
 
       {/* Category Filter */}
@@ -98,51 +132,67 @@ export default function Gallery() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12"
         >
-          {filteredItems.map((item, i) => (
-            <motion.div
-              key={`${item.title}-${i}`}
-              variants={itemVariants}
-              whileHover={{ y: -15 }}
-              className="bg-primary-deep rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-secondary-gold/20 hover:border-secondary-gold cursor-pointer group"
-            >
-              {/* Image/Icon Area */}
-              <div className="relative h-56 bg-primary-charcoal flex items-center justify-center overflow-hidden">
-                <motion.div
-                  className="w-full h-full relative"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <img
-                    src={item.image}
-                    alt={`${item.title} - ${item.category} by Saqify Art Studio`}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
-              </div>
+          {filteredItems.map((item, i) => {
+            const id = item.title.toLowerCase().replace(/\s+/g, '-');
+            const wishlisted = isWishlisted(id);
+            return (
+              <motion.div
+                key={`${item.title}-${i}`}
+                variants={itemVariants}
+                whileHover={{ y: -15 }}
+                className="bg-primary-deep rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-secondary-gold/20 hover:border-secondary-gold cursor-pointer group"
+              >
+                {/* Image Area */}
+                <div className="relative h-56 bg-primary-charcoal overflow-hidden">
+                  <motion.div
+                    className="w-full h-full"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={`${item.title} - ${item.category} by Saqify Art Studio`}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
+                  {/* Wishlist button */}
+                  <motion.button
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={(e) => { e.stopPropagation(); handleWishlist(item); }}
+                    className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${wishlisted
+                        ? 'bg-red-500 text-white'
+                        : 'bg-black/40 text-white/70 hover:bg-red-500 hover:text-white opacity-0 group-hover:opacity-100'
+                      }`}
+                    title={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+                  >
+                    <FaHeart className="text-sm" />
+                  </motion.button>
+                </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <span className="inline-block text-xs font-bold text-secondary-gold bg-secondary-gold/10 px-3 py-1 rounded-full mb-3 border border-secondary-gold/20">
-                  {item.category}
-                </span>
-                <motion.h3
-                  className="text-xl font-bold mb-2 text-accent-ivory group-hover:text-secondary-gold transition-colors"
-                >
-                  {item.title}
-                </motion.h3>
-                <p className="text-accent-beige text-sm leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Content */}
+                <div className="p-6">
+                  <span className="inline-block text-xs font-bold text-secondary-gold bg-secondary-gold/10 px-3 py-1 rounded-full mb-3 border border-secondary-gold/20">
+                    {item.category}
+                  </span>
+                  <motion.h3 className="text-xl font-bold mb-2 text-accent-ivory group-hover:text-secondary-gold transition-colors">
+                    {item.title}
+                  </motion.h3>
+                  <p className="text-accent-beige text-sm leading-relaxed">{item.description}</p>
+                  <div className="flex items-center justify-between mt-4">
+                    <Link href="/order" className="text-secondary-gold text-sm font-bold hover:underline">
+                      Order Similar →
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {filteredItems.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
             <p className="text-accent-beige text-lg">No items found in this category</p>
           </motion.div>
         )}
@@ -153,18 +203,15 @@ export default function Gallery() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="mt-12 text-center bg-primary-deep border border-secondary-gold/20 p-12 rounded-2xl shadow-2xl container mx-auto mx-4 mb-12 relative overflow-hidden"
+        className="mt-12 text-center bg-primary-deep border border-secondary-gold/20 p-12 rounded-2xl shadow-2xl container mx-auto mb-12 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-secondary-gold/5"></div>
+        <div className="absolute inset-0 bg-secondary-gold/5" />
         <div className="relative z-10">
           <h2 className="text-3xl font-serif font-bold mb-4 text-accent-ivory">Inspired by Our Work?</h2>
           <p className="text-accent-beige mb-8 max-w-2xl mx-auto leading-relaxed">
             Let&apos;s collaborate and create something amazing together. Get in touch with us to discuss your next project.
           </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/order"
               className="inline-block bg-secondary-gold text-primary-deep font-bold py-3 px-10 rounded-full hover:bg-white transition duration-300 shadow-lg hover:shadow-2xl"
@@ -177,4 +224,3 @@ export default function Gallery() {
     </div>
   );
 }
-

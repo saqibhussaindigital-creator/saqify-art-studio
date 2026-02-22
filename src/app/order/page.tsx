@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function Order() {
+  const { data: session } = useSession();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,6 +42,22 @@ export default function Order() {
           throw new Error(details || resData.error || 'Validation failed');
         }
         throw new Error(resData.error || 'Something went wrong. Please try again.');
+      }
+
+      // Save order to localStorage for order history
+      const email = session?.user?.email;
+      if (email) {
+        const storageKey = `saqify_orders_${email}`;
+        const existing = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        const newOrder = {
+          id: resData.orderId || `ORD-${Date.now()}`,
+          service: data.service,
+          budget: data.budget || '',
+          details: data.details,
+          status: 'pending',
+          createdAt: new Date().toISOString(),
+        };
+        localStorage.setItem(storageKey, JSON.stringify([newOrder, ...existing]));
       }
 
       setSubmitted(true);
